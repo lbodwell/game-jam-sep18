@@ -11,6 +11,7 @@ public class PlayerMovement : MonoBehaviour {
     public float jumpForce = 5;
 
     float moveDiv = 10;
+    bool isGrounded = true;
 
 	// Use this for initialization
 	void Start () {
@@ -29,14 +30,42 @@ public class PlayerMovement : MonoBehaviour {
 
     void jump() {
 
-        if (Input.GetKeyDown("w")) {
+        Debug.Log(isGrounded);
+
+        if (Input.GetKeyDown("w") && isGrounded) {
             physics.AddForce(new Vector2(0, jumpForce), ForceMode2D.Impulse);
         }
     }
 
-    /*bool IsGrounded () {
-        RaycastHit2D cast = Physics2D.Raycast(transform.position, Vector2.down);
+    bool IsGrounded () {
+        RaycastHit2D cast = Physics2D.Raycast(transform.position, Vector2.down, GetComponent<Collider2D>().bounds.extents.y);
 
-        cast.
-    }*/
+        //Debug.Log(cast.distance + " <= " + GetComponent<Collider2D>().bounds.extents.y);
+
+        //Debug.DrawRay(transform.position, Vector2.down, Color.black);
+
+        bool ans = cast.distance <= GetComponent<Collider2D>().bounds.extents.y;
+
+        Debug.Log(cast);
+
+        return cast;
+    }
+
+    void OnCollisionEnter(Collision collision)
+    {
+        Debug.Log("Entered");
+        if (collision.gameObject.CompareTag("Ground"))
+        {
+            isGrounded = true;
+        }
+    }
+
+    void OnCollisionExit(Collision collision)
+    {
+        Debug.Log("Exited");
+        if (collision.gameObject.CompareTag("Ground"))
+        {
+            isGrounded = false;
+        }
+    }
 }

@@ -33,12 +33,9 @@ public class PlayerMovement : MonoBehaviour {
         }
         float verticalMove = Input.GetAxis("Jump");
         Debug.Log(verticalMove);
-        if (IsOnGround() && !isJumping)
+        if (IsOnGround() && !isJumping && verticalMove > 0f)
         {
-            if (verticalMove > 0f)
-            {
-                isJumping = true;
-            }
+            isJumping = true;
         }
         if (jumpPressTime > maxJumpTime)
         {

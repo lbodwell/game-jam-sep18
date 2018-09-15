@@ -26,13 +26,12 @@ public class PlayerMovement : MonoBehaviour {
         transform.Translate(new Vector2(Input.GetAxis("Horizontal") * moveSpeed / moveDiv, 0));
 
         jump();
-	}
+
+        Debug.DrawRay(transform.position, Vector2.down);
+    }
 
     void jump() {
-
-        //Debug.Log(isGrounded);
-
-        if (Input.GetKeyDown("w") && isGrounded) {
+        if (Input.GetKeyDown("w") && IsGrounded()) {
             physics.AddForce(new Vector2(0, jumpForce), ForceMode2D.Impulse);
         }
     }

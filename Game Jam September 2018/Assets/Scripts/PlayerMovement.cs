@@ -4,53 +4,60 @@ using UnityEngine;
 
 public class PlayerMovement : MonoBehaviour {
 
-    Rigidbody2D physics;
-    Transform transform;
-
-    public float moveSpeed = 1;
-    public float jumpForce = 10;
-
-    float moveDiv = 10;
-    bool isGrounded = true;
+    public float moveSpeed = 5f;
+    public float jumpSpeed = 5f;
+    private float rayCastLength = 0.005f;
+    private float width;
+    private float height;
+    private float jumpPressTime;
+    private float maxJumpTime = 0.2f;
+    public bool facingRight = true;
+    bool isJumping = false;
+    
+    private Rigidbody2D rb;
 
 	// Use this for initialization
-	void Start () {
-        physics = GetComponent<Rigidbody2D>();
-        transform = GetComponent<Transform>();
-
-        physics.freezeRotation = true;
+	void Awake () {
+        rb = GetComponent<Rigidbody2D>();
+        rb.freezeRotation = true;
 	}
 	
 	// Update is called once per frame
 	void Update () {
-        transform.Translate(new Vector2(Input.GetAxis("Horizontal") * moveSpeed / moveDiv, 0));
+		
+	}
 
-        jump();
-
-        Debug.DrawRay(transform.position, Vector2.down);
-    }
-
-    void jump() {
-        if (Input.GetKeyDown("w") && isGrounded) {
-            physics.AddForce(new Vector2(0, jumpForce), ForceMode2D.Impulse);
-        }
-    }
-
-    void OnCollisionEnter2D(Collision2D collision)
+    void FixedUpdate()
     {
-        //Debug.Log("Entered");
-        if (collision.gameObject.CompareTag("Ground"))
+        float horizontalMove = Input.GetAxisRaw("Horizontal");
+        Vector2 vect = rb.velocity;
+        rb.velocity = new Vector2(horizontalMove * moveSpeed, vect.y);
+        if ((horizontalMove > 0 && !facingRight) || (horizontalMove < 0 && facingRight))
         {
-            isGrounded = true;
+            FlipPlayer();
         }
+        float verticalMove = Input.GetAxis("Jump");
     }
 
-    void OnCollisionExit2D(Collision2D collision)
+    void FlipPlayer()
     {
-        //Debug.Log("Exited");
-        if (collision.gameObject.CompareTag("Ground"))
-        {
-            isGrounded = false;
-        }
+        facingRight = !facingRight;
+        Vector3 scale = transform.localScale;
+        scale.x *= -1;
+        transform.localScale = scale;
+    }
+
+    void OnBecameInvisible()
+    {
+        Debug.Log("Fell off the map");
+        //Destroy(gameObject);
+    }
+
+    public bool IsOnGround()
+    {
+        bool groundCheck1 = Physics2D.Raycast(new Vector2(transform.position.x, transform.position.y - height), -Vector2.up, rayCastLength);
+        bool groundCheck2 = Physics2D.Raycast(new Vector2(transform.position.x + (width - 0.2f), transform.position.y - height), -Vector2.up, rayCastLength);
+        bool groundCheck3 = Physics2D.Raycast(new Vector2(transform.position.x - (width - 0.2f), transform.position.y - height), -Vector2.up, rayCastLength);
+        return (groundCheck1 || groundCheck2 || groundCheck3);
     }
 }

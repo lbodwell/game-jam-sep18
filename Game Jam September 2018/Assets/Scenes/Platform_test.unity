@@ -211,6 +211,11 @@ Prefab:
       propertyPath: m_TagString
       value: Ground
       objectReference: {fileID: 0}
+    - target: {fileID: 114578622704537786, guid: b3fb4cde72e31b647a93680320e18e9e,
+        type: 2}
+      propertyPath: moveSpeed
+      value: 1
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: b3fb4cde72e31b647a93680320e18e9e, type: 2}
   m_IsPrefabAsset: 0

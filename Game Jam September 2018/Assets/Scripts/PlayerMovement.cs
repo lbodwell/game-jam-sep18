@@ -7,8 +7,8 @@ public class PlayerMovement : MonoBehaviour {
     Rigidbody2D physics;
     Transform transform;
 
-    public float moveSpeed = 2;
-    public float jumpForce = 5;
+    public float moveSpeed = 1;
+    public float jumpForce = 10;
 
     float moveDiv = 10;
     bool isGrounded = true;

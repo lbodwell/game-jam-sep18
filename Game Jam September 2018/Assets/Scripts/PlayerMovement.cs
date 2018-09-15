@@ -6,6 +6,7 @@ public class PlayerMovement : MonoBehaviour {
 
     Rigidbody2D physics;
     Transform transform;
+    SpriteRenderer sprite;
 
     public float moveSpeed = 1;
     public float jumpForce = 10;
@@ -17,6 +18,7 @@ public class PlayerMovement : MonoBehaviour {
 	void Start () {
         physics = GetComponent<Rigidbody2D>();
         transform = GetComponent<Transform>();
+        sprite = GetComponent<SpriteRenderer>();
 
         physics.freezeRotation = true;
 	}
@@ -26,6 +28,7 @@ public class PlayerMovement : MonoBehaviour {
         transform.Translate(new Vector2(Input.GetAxis("Horizontal") * moveSpeed / moveDiv, 0));
 
         jump();
+        direction();
 
         Debug.DrawRay(transform.position, Vector2.down);
     }
@@ -34,6 +37,12 @@ public class PlayerMovement : MonoBehaviour {
         if (Input.GetKeyDown("w") && isGrounded) {
             physics.AddForce(new Vector2(0, jumpForce), ForceMode2D.Impulse);
         }
+    }
+
+    void direction()
+    {
+        if(Input.GetAxis("Horizontal") < 0) { sprite.flipX = true; }
+        else if(Input.GetAxis("Horizontal") > 0) { sprite.flipX = false; }
     }
 
     void OnCollisionEnter2D(Collision2D collision)

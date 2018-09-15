@@ -38,9 +38,10 @@ public class Robot_behavior_base : MonoBehaviour {
         }
     }
 
-    IEnumerator moveRight(float time)
+    public IEnumerator moveRight(float time)
     {
         float startTime = Time.time;
+        sprite.flipX = false;
         while (Time.time <= startTime + time)
         {
             transform.Translate(new Vector2(moveSpeed/moveDiv, 0));
@@ -49,9 +50,10 @@ public class Robot_behavior_base : MonoBehaviour {
         yield return null;
     }
 
-    IEnumerator moveLeft (float time)
+    public IEnumerator moveLeft (float time)
     {
         float startTime = Time.time;
+        sprite.flipX = true;
         while (Time.time <= startTime + time)
         {
             transform.Translate(new Vector2(-moveSpeed/moveDiv, 0));

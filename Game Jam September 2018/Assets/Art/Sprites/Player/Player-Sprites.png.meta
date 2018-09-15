@@ -1,7 +1,9 @@
 fileFormatVersion: 2
-guid: 9cf431bf432383641b27c353dd67bab2
+guid: 00117ca259449cb4b9206d1618e8ad7e
 TextureImporter:
-  fileIDToRecycleName: {}
+  fileIDToRecycleName:
+    21300000: Player-Sprites_Idle_1
+    21300002: Player-Sprites_Jump
   externalObjects: {}
   serializedVersion: 7
   mipmaps:
@@ -40,12 +42,12 @@ TextureImporter:
   nPOTScale: 0
   lightmap: 0
   compressionQuality: 50
-  spriteMode: 1
+  spriteMode: 2
   spriteExtrude: 1
   spriteMeshType: 1
   alignment: 0
   spritePivot: {x: 0.5, y: 0.5}
-  spritePixelsToUnits: 100
+  spritePixelsToUnits: 32
   spriteBorder: {x: 0, y: 0, z: 0, w: 0}
   spriteGenerateFallbackPhysicsShape: 1
   alphaUsage: 1
@@ -93,11 +95,51 @@ TextureImporter:
     androidETC2FallbackOverride: 0
   spriteSheet:
     serializedVersion: 2
-    sprites: []
+    sprites:
+    - serializedVersion: 2
+      name: Player-Sprites_Idle_1
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 0
+        width: 23
+        height: 59
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 39883d17d30cdfd4b8764862f503b30a
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Player-Sprites_Jump
+      rect:
+        serializedVersion: 2
+        x: 28
+        y: 0
+        width: 25
+        height: 59
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: a71ca4fcdb5cf8547b3224b2edaa4416
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
     outline: []
     physicsShape: []
     bones: []
-    spriteID: a9f1b3547e6f10f4bb5789c5e294ea5d
+    spriteID: 581d6a0fa6cbfc9409d5b1bd4e293523
     vertices: []
     indices: 
     edges: []

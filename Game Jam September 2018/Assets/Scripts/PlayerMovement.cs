@@ -31,7 +31,7 @@ public class PlayerMovement : MonoBehaviour {
     }
 
     void jump() {
-        if (Input.GetKeyDown("w") && IsGrounded()) {
+        if (Input.GetKeyDown("w") && isGrounded) {
             physics.AddForce(new Vector2(0, jumpForce), ForceMode2D.Impulse);
         }
     }

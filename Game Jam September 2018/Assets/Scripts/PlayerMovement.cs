@@ -30,7 +30,7 @@ public class PlayerMovement : MonoBehaviour {
 
     void jump() {
 
-        Debug.Log(isGrounded);
+        //Debug.Log(isGrounded);
 
         if (Input.GetKeyDown("w") && isGrounded) {
             physics.AddForce(new Vector2(0, jumpForce), ForceMode2D.Impulse);
@@ -51,7 +51,7 @@ public class PlayerMovement : MonoBehaviour {
         return cast;
     }
 
-    void OnCollisionEnter(Collision collision)
+    void OnCollisionEnter2D(Collision2D collision)
     {
         Debug.Log("Entered");
         if (collision.gameObject.CompareTag("Ground"))
@@ -60,7 +60,7 @@ public class PlayerMovement : MonoBehaviour {
         }
     }
 
-    void OnCollisionExit(Collision collision)
+    void OnCollisionExit2D(Collision2D collision)
     {
         Debug.Log("Exited");
         if (collision.gameObject.CompareTag("Ground"))

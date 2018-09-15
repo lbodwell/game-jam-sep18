@@ -14,6 +14,7 @@ public class PlayerMovement : MonoBehaviour {
     private float maxJumpTime = 0.2f;
     public bool facingRight = true;
     public bool isJumping = false;
+    public bool isColliding = true;
 
 	void Awake () {
         rb = GetComponent<Rigidbody2D>();
@@ -32,7 +33,7 @@ public class PlayerMovement : MonoBehaviour {
             FlipPlayer();
         }
         float verticalMove = Input.GetAxis("Jump");
-        Debug.Log(verticalMove);
+        Debug.Log(IsOnGround());
         if (IsOnGround() && !isJumping && verticalMove > 0f)
         {
             isJumping = true;
@@ -55,7 +56,7 @@ public class PlayerMovement : MonoBehaviour {
         }
     }
 
-    void FlipPlayer()
+    private void FlipPlayer()
     {
         facingRight = !facingRight;
         Vector3 scale = transform.localScale;
@@ -72,9 +73,8 @@ public class PlayerMovement : MonoBehaviour {
     public bool IsOnGround()
     {
         bool groundCheck1 = Physics2D.Raycast(new Vector2(transform.position.x, transform.position.y - height), -Vector2.up, rayCastLength);
-        bool groundCheck2 = Physics2D.Raycast(new Vector2(transform.position.x + (width - 0.2f), transform.position.y - height), -Vector2.up, rayCastLength);
-        bool groundCheck3 = Physics2D.Raycast(new Vector2(transform.position.x - (width - 0.2f), transform.position.y - height), -Vector2.up, rayCastLength);
-        Debug.Log("check 1: " + groundCheck1 + "\ncheck 2: " + groundCheck2 + "\ncheck3: " + groundCheck3);
+        bool groundCheck2 = Physics2D.Raycast(new Vector2(transform.position.x + (width - 0.1f), transform.position.y - height), -Vector2.up, rayCastLength);
+        bool groundCheck3 = Physics2D.Raycast(new Vector2(transform.position.x - (width - 0.1f), transform.position.y - height), -Vector2.up, rayCastLength);
         return (groundCheck1 || groundCheck2 || groundCheck3);
     }
 }

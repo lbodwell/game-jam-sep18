@@ -22,11 +22,14 @@ public class PlayerMovement : MonoBehaviour {
 
         physics.freezeRotation = true;
 	}
-	
-	// Update is called once per frame
-	void Update () {
-        transform.Translate(new Vector2(Input.GetAxis("Horizontal") * moveSpeed / moveDiv, 0));
 
+    private void FixedUpdate()
+    {
+        transform.Translate(new Vector2(Input.GetAxis("Horizontal") * moveSpeed / moveDiv, 0));
+    }
+
+    // Update is called once per frame
+    void Update () {
         jump();
         direction();
 

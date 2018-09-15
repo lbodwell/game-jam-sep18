@@ -37,23 +37,9 @@ public class PlayerMovement : MonoBehaviour {
         }
     }
 
-    bool IsGrounded () {
-        RaycastHit2D cast = Physics2D.Raycast(transform.position, Vector2.down, GetComponent<Collider2D>().bounds.extents.y);
-
-        //Debug.Log(cast.distance + " <= " + GetComponent<Collider2D>().bounds.extents.y);
-
-        //Debug.DrawRay(transform.position, Vector2.down, Color.black);
-
-        bool ans = cast.distance <= GetComponent<Collider2D>().bounds.extents.y;
-
-        Debug.Log(cast);
-
-        return cast;
-    }
-
     void OnCollisionEnter2D(Collision2D collision)
     {
-        Debug.Log("Entered");
+        //Debug.Log("Entered");
         if (collision.gameObject.CompareTag("Ground"))
         {
             isGrounded = true;
@@ -62,7 +48,7 @@ public class PlayerMovement : MonoBehaviour {
 
     void OnCollisionExit2D(Collision2D collision)
     {
-        Debug.Log("Exited");
+        //Debug.Log("Exited");
         if (collision.gameObject.CompareTag("Ground"))
         {
             isGrounded = false;

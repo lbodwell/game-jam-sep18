@@ -4,6 +4,7 @@ using UnityEngine;
 
 public class PlayerMovement : MonoBehaviour {
 
+    private Rigidbody2D rb;
     public float moveSpeed = 5f;
     public float jumpSpeed = 5f;
     private float rayCastLength = 0.005f;
@@ -12,21 +13,15 @@ public class PlayerMovement : MonoBehaviour {
     private float jumpPressTime;
     private float maxJumpTime = 0.2f;
     public bool facingRight = true;
-    bool isJumping = false;
-    
-    private Rigidbody2D rb;
+    public bool isJumping = false;
 
-	// Use this for initialization
 	void Awake () {
         rb = GetComponent<Rigidbody2D>();
         rb.freezeRotation = true;
-	}
+        width = GetComponent<Collider2D>().bounds.extents.x + 0.1f;
+        height = GetComponent<Collider2D>().bounds.extents.y + 0.2f;
+    }
 	
-	// Update is called once per frame
-	void Update () {
-		
-	}
-
     void FixedUpdate()
     {
         float horizontalMove = Input.GetAxisRaw("Horizontal");
@@ -37,6 +32,30 @@ public class PlayerMovement : MonoBehaviour {
             FlipPlayer();
         }
         float verticalMove = Input.GetAxis("Jump");
+        Debug.Log(verticalMove);
+        if (IsOnGround() && !isJumping)
+        {
+            if (verticalMove > 0f)
+            {
+                isJumping = true;
+            }
+        }
+        if (jumpPressTime > maxJumpTime)
+        {
+            verticalMove = 0f;
+        }
+        if (isJumping && (jumpPressTime < maxJumpTime))
+        {
+            rb.velocity = new Vector2(rb.velocity.x, jumpSpeed);
+        }
+        if (verticalMove >= 1f)
+        {
+            jumpPressTime += Time.deltaTime;
+        } else
+        {
+            isJumping = false;
+            jumpPressTime = 0;
+        }
     }
 
     void FlipPlayer()
@@ -58,6 +77,7 @@ public class PlayerMovement : MonoBehaviour {
         bool groundCheck1 = Physics2D.Raycast(new Vector2(transform.position.x, transform.position.y - height), -Vector2.up, rayCastLength);
         bool groundCheck2 = Physics2D.Raycast(new Vector2(transform.position.x + (width - 0.2f), transform.position.y - height), -Vector2.up, rayCastLength);
         bool groundCheck3 = Physics2D.Raycast(new Vector2(transform.position.x - (width - 0.2f), transform.position.y - height), -Vector2.up, rayCastLength);
+        Debug.Log("check 1: " + groundCheck1 + "\ncheck 2: " + groundCheck2 + "\ncheck3: " + groundCheck3);
         return (groundCheck1 || groundCheck2 || groundCheck3);
     }
 }

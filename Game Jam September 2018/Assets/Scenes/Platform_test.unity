@@ -2048,6 +2048,11 @@ Prefab:
       propertyPath: moveSpeed
       value: 4
       objectReference: {fileID: 0}
+    - target: {fileID: 50485496604857384, guid: 186be215a62b9114d9c64c17d785fb93,
+        type: 2}
+      propertyPath: m_GravityScale
+      value: 1
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 186be215a62b9114d9c64c17d785fb93, type: 2}
   m_IsPrefabAsset: 0
@@ -2165,7 +2170,7 @@ Transform:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 1451957358}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -1.8688025, y: -0.9260001, z: -10.025}
+  m_LocalPosition: {x: -1.8688025, y: -1.8140001, z: -10.025}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
@@ -2974,7 +2979,7 @@ Transform:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 1900952630}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -1.8688025, y: -0.9260001, z: -10.025}
+  m_LocalPosition: {x: -1.8688025, y: -1.8140001, z: -10.025}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 2071237964}
@@ -3024,21 +3029,21 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   m_LookaheadTime: 0.3
   m_LookaheadSmoothing: 10
-  m_LookaheadIgnoreY: 0
+  m_LookaheadIgnoreY: 1
   m_XDamping: 1
   m_YDamping: 1
   m_ZDamping: 0
   m_ScreenX: 0.206
-  m_ScreenY: 0.798
+  m_ScreenY: 0.687
   m_CameraDistance: 10
-  m_DeadZoneWidth: 0.2
-  m_DeadZoneHeight: 0.1
+  m_DeadZoneWidth: 0
+  m_DeadZoneHeight: 0
   m_DeadZoneDepth: 0
   m_UnlimitedSoftZone: 0
-  m_SoftZoneWidth: 0.8
-  m_SoftZoneHeight: 0.8
-  m_BiasX: 0.00000029802322
-  m_BiasY: 0
+  m_SoftZoneWidth: 1
+  m_SoftZoneHeight: 0.3
+  m_BiasX: 0
+  m_BiasY: -0.00000019868214
   m_GroupFramingMode: 2
   m_AdjustmentMode: 2
   m_GroupFramingSize: 0.8

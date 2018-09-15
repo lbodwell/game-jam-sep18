@@ -5,6 +5,10 @@ TagManager:
   serializedVersion: 2
   tags:
   - Ground
+<<<<<<< HEAD
+=======
+  - Character
+>>>>>>> Cameron-Test
   layers:
   - Default
   - TransparentFX

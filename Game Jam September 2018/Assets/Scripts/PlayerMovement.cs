@@ -13,31 +13,17 @@ public class PlayerMovement : MonoBehaviour
     private float height;
     private float jumpPressTime;
     private float maxJumpTime = 0.2f;
-<<<<<<< HEAD
-    public bool facingRight = true;
-    public bool isJumping = false;
-    public bool isColliding = true;
-
-	void Awake () {
-=======
-    private float yPos;
     public bool facingRight = true;
     public bool isJumping = false;
     public bool isGrounded = false;
 
     void Awake()
     {
->>>>>>> Cameron-Test
         rb = GetComponent<Rigidbody2D>();
         rb.freezeRotation = true;
         width = GetComponent<Collider2D>().bounds.extents.x + 0.1f;
         height = GetComponent<Collider2D>().bounds.extents.y + 0.2f;
     }
-<<<<<<< HEAD
-	
-=======
-
->>>>>>> Cameron-Test
     void FixedUpdate()
     {
         float horizontalMove = Input.GetAxisRaw("Horizontal");
@@ -56,7 +42,6 @@ public class PlayerMovement : MonoBehaviour
         if (jumpPressTime > maxJumpTime)
         {
             verticalMove = 0f;
-<<<<<<< HEAD
         }
         if (isJumping && (jumpPressTime < maxJumpTime))
         {
@@ -69,8 +54,6 @@ public class PlayerMovement : MonoBehaviour
         {
             isJumping = false;
             jumpPressTime = 0;
-=======
->>>>>>> Cameron-Test
         }
         if (isJumping && (jumpPressTime < maxJumpTime))
         {
@@ -84,10 +67,6 @@ public class PlayerMovement : MonoBehaviour
         {
             isJumping = false;
             jumpPressTime = 0;
-        }
-        if (GameObject.Find("Player").transform.position.y > -3.387 && !isGrounded && !isJumping)
-        {
-            verticalMove = 0f;
         }
         isGrounded = IsOnGround();
     }

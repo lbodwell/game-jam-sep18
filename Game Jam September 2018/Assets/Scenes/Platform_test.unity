@@ -2051,12 +2051,12 @@ Prefab:
     - target: {fileID: 50485496604857384, guid: 186be215a62b9114d9c64c17d785fb93,
         type: 2}
       propertyPath: m_GravityScale
-      value: 1.6
+      value: 1.1
       objectReference: {fileID: 0}
     - target: {fileID: 114892608776877550, guid: 186be215a62b9114d9c64c17d785fb93,
         type: 2}
       propertyPath: jumpSpeed
-      value: 6
+      value: 7
       objectReference: {fileID: 0}
     - target: {fileID: 50485496604857384, guid: 186be215a62b9114d9c64c17d785fb93,
         type: 2}
@@ -2185,7 +2185,7 @@ Transform:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 1451957358}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -2.8108025, y: -1.891, z: -10.025}
+  m_LocalPosition: {x: -2.4875178, y: -1.891, z: -10.025}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
@@ -2994,7 +2994,7 @@ Transform:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 1900952630}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -2.8108025, y: -1.891, z: -10.025}
+  m_LocalPosition: {x: -2.4875178, y: -1.891, z: -10.025}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 2071237964}

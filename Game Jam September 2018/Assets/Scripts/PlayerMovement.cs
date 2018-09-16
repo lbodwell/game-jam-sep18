@@ -12,9 +12,10 @@ public class PlayerMovement : MonoBehaviour {
     private float height;
     private float jumpPressTime;
     private float maxJumpTime = 0.2f;
+    private float yPos;
     public bool facingRight = true;
     public bool isJumping = false;
-    public bool isColliding = true;
+    public bool isGrounded = false;
 
 	void Awake () {
         rb = GetComponent<Rigidbody2D>();
@@ -54,6 +55,11 @@ public class PlayerMovement : MonoBehaviour {
             isJumping = false;
             jumpPressTime = 0;
         }
+        if (GameObject.Find("Player").transform.position.y > -3.387 && !isGrounded && !isJumping)
+        {
+            verticalMove = 0f;
+        }
+        isGrounded = IsOnGround();
     }
 
     private void FlipPlayer()

@@ -2051,12 +2051,12 @@ Prefab:
     - target: {fileID: 50485496604857384, guid: 186be215a62b9114d9c64c17d785fb93,
         type: 2}
       propertyPath: m_GravityScale
-      value: 1.1
+      value: 1.6
       objectReference: {fileID: 0}
     - target: {fileID: 114892608776877550, guid: 186be215a62b9114d9c64c17d785fb93,
         type: 2}
       propertyPath: jumpSpeed
-      value: 7
+      value: 6
       objectReference: {fileID: 0}
     - target: {fileID: 50485496604857384, guid: 186be215a62b9114d9c64c17d785fb93,
         type: 2}

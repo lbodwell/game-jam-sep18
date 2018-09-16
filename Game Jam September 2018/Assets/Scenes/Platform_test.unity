@@ -2050,8 +2050,41 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 50485496604857384, guid: 186be215a62b9114d9c64c17d785fb93,
         type: 2}
+<<<<<<< HEAD
       propertyPath: m_GravityScale
       value: 1.6
+=======
+      propertyPath: m_Size.y
+      value: 1.84375
+      objectReference: {fileID: 0}
+    - target: {fileID: 114892608776877550, guid: 186be215a62b9114d9c64c17d785fb93,
+        type: 2}
+      propertyPath: moveSpeed
+      value: 6
+      objectReference: {fileID: 0}
+    - target: {fileID: 114892608776877550, guid: 186be215a62b9114d9c64c17d785fb93,
+        type: 2}
+      propertyPath: facingRight
+      value: 1
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: 186be215a62b9114d9c64c17d785fb93, type: 2}
+  m_IsPrefabAsset: 0
+--- !u!1001 &1306800102
+Prefab:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    m_TransformParent: {fileID: 0}
+    m_Modifications:
+    - target: {fileID: 4619724042196174, guid: cc2227f9ef93da14dad176041603134b, type: 2}
+      propertyPath: m_LocalPosition.x
+      value: -3.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 4619724042196174, guid: cc2227f9ef93da14dad176041603134b, type: 2}
+      propertyPath: m_LocalPosition.y
+      value: -2.5
+>>>>>>> Cameron-Test
       objectReference: {fileID: 0}
     - target: {fileID: 114892608776877550, guid: 186be215a62b9114d9c64c17d785fb93,
         type: 2}

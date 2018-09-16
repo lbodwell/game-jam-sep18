@@ -2238,16 +2238,6 @@ Prefab:
       propertyPath: m_Size.y
       value: 1.84375
       objectReference: {fileID: 0}
-    - target: {fileID: 114892608776877550, guid: 186be215a62b9114d9c64c17d785fb93,
-        type: 2}
-      propertyPath: moveSpeed
-      value: 6
-      objectReference: {fileID: 0}
-    - target: {fileID: 114892608776877550, guid: 186be215a62b9114d9c64c17d785fb93,
-        type: 2}
-      propertyPath: facingRight
-      value: 1
-      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 186be215a62b9114d9c64c17d785fb93, type: 2}
   m_IsPrefabAsset: 0
